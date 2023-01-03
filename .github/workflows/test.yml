@@ -32,5 +32,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          read httpCode rlRemain rlReset <<<$(curl -H "Accept: application/vnd.github+json" https://api.github.com/repos/containerd/containerd/pulls/7848/commits --write-out '%{http_code} %header{x-ratelimit-remaining} %header{x-ratelimit-reset}\n' --output output)
+          curl --version
+          read httpCode rlRemain rlReset <<<$(curl -H "Accept: application/vnd.github+json" https://api.github.com/repos/containerd/containerd/pulls/7848/commits --dump-header header --write-out '%{http_code} %header{x-ratelimit-remaining} %header{x-ratelimit-reset}\n' --output output)
           echo $httpCode $rlRemain $rlReset
+          cat header
+          cat output
