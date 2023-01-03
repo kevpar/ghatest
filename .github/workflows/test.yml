@@ -40,3 +40,8 @@ jobs:
           cat output
           curl https://api.github.com/rate_limit
           curl https://api.github.com/rate_limit -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"
+
+      - uses: containerd/project-checks@v1
+        with:
+          working-directory: .
+          repo_access_token: ${{ secrets.GITHUB_TOKEN }}
