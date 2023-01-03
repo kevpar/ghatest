@@ -38,3 +38,5 @@ jobs:
           echo $httpCode $rlRemain $rlReset
           cat headers
           cat output
+          curl https://api.github.com/rate_limit
+          curl https://api.github.com/rate_limit -H "Authorization: Bearer ${GITHUB_TOKEN}"
