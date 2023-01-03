@@ -44,4 +44,4 @@ jobs:
       - uses: containerd/project-checks@v1
         with:
           working-directory: .
-          repo_access_token: ${{ secrets.GITHUB_TOKEN }}
+          repo-access-token: ${{ secrets.GITHUB_TOKEN }}
